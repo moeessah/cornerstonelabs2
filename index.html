@@ -27,15 +27,15 @@
    /pictures/sasson.png             Steve Sasson portrait, 1975
    /pictures/camera-1975.png        first digital camera, Kodak lab
    /pictures/kodak-logo.png         Kodak wordmark
-   /pictures/memo-scan.png          scanned 1979 internal memo (optional, styled box used instead)
    /pictures/film-packaging.png     Kodak film box, 1980s
    /pictures/cover-africa-rising.webp   report cover, case study 01
    /pictures/case-file-ai-employment.webp case file thumbnail, case study 02
+   /assets/reviews/{sarah-k,marcus-o,priya-n,james-t}.webp   testimonial avatars
    Every <img> below has an onerror fallback that shows a labelled
    placeholder box if the file is missing, so the page still works
    without the assets.
 
-   PAGE ORDER (per GTM review):
+   PAGE ORDER:
    Hero (problem) -> Kodak (why strategy fails) -> What This Is
    (how it works) -> Case Studies (evidence) -> Your Decision quiz
    (who it's for) -> Engagements (ways to work together) ->
@@ -54,7 +54,6 @@
   --shadow:0 8px 30px rgba(0,0,0,.05);
 
   --text30:rgba(17,17,17,.3);
-  --text14:rgba(17,17,17,.1);
 
   --ease:cubic-bezier(.4,0,.2,1);
   --ease-o:cubic-bezier(.16,1,.3,1);
@@ -88,7 +87,6 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);
   font-size:11px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--text-secondary)}
 .eyebrow::before{content:'';width:6px;height:6px;background:var(--accent);flex-shrink:0;border-radius:1px}
-.eyebrow.on-dark{color:rgba(255,255,255,.55)}
 .caption{font-family:var(--mono);font-size:12.5px;font-weight:400;color:var(--text-secondary)}
 
 .mark{position:relative;display:inline-block;padding:0 .16em;color:var(--text);z-index:0}
@@ -127,6 +125,8 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
   font-family:var(--mono);font-size:10.5px;letter-spacing:.02em;gap:5px;border-radius:12px;padding:8px}
 .ph .ph-label{font-weight:600;color:var(--text);font-family:var(--sans);font-size:12px}
 .ph .ph-file{color:var(--text-secondary)}
+.ph-fill{display:none;width:100%;height:100%}
+.ph-flush{border:none;border-radius:0}
 
 /* ============================================================
    NAV
@@ -272,7 +272,6 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
   border-radius:10px;transform:rotate(-.6deg);box-shadow:var(--shadow)}
 .kodak-memo strong{font-weight:700}
 .kodak-simple{font-size:clamp(22px,3vw,34px);font-weight:800;line-height:1.4}
-.kodak-mark{margin-top:36px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;opacity:.45}
 .kodak-dots{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
 .kodak-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .3s}
 .kodak-dot.active{background:var(--accent)}
@@ -301,7 +300,6 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
 .whatis-pillar:hover{transform:translateY(-4px)}
 .whatis-pillar h3{font-size:16px;font-weight:800;margin:0 0 8px}
 .whatis-pillar p{font-size:14px;color:var(--text-secondary);margin:0;line-height:1.55}
-.whatis-close{font-size:15px;color:var(--text-secondary);max-width:60ch;margin:40px auto 0;line-height:1.6}
 
 /* ============================================================
    SECTION — PROOF (case studies, evidence)
@@ -343,12 +341,6 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
 .case-photo-tag{position:absolute;top:14px;left:14px;background:var(--accent);color:var(--text);
   font-family:var(--mono);font-size:10.5px;font-weight:700;padding:6px 12px;border-radius:999px;
   letter-spacing:.03em}
-.case-dl{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;
-  background:var(--accent);color:var(--text);margin-top:16px;
-  font-size:13px;font-weight:700;padding:13px 20px;border-radius:999px;
-  transition:transform .25s var(--ease),background .25s}
-.case-dl:hover{transform:translateY(-2px);background:#c7ef00}
-
 .case-panel-body{flex:1 1 480px;min-width:0;padding-top:6px}
 .case-tag{font-family:var(--mono);font-size:11px;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.05em}
 .case-title{font-size:clamp(21px,2.4vw,28px);font-weight:800;margin:8px 0 0;max-width:34ch}
@@ -415,13 +407,11 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
 .yd-head{text-align:center;margin-bottom:16px;position:relative}
 .yd-head .eyebrow{color:rgba(17,17,17,.6)}
 .yd-head .eyebrow::before{background:var(--text)}
-.yd-kicker{display:block;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.04em;
-  color:rgba(17,17,17,.55);margin:14px 0 0}
-.yd-subhead{max-width:480px;margin:14px auto 0;font-size:15.5px;line-height:1.55;color:rgba(17,17,17,.65)}
 .yd-meta{display:flex;align-items:center;justify-content:center;gap:14px;margin:36px 0 20px}
 .yd-stepcount{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.04em;color:rgba(17,17,17,.55)}
 .yd-step{display:none;max-width:900px;margin:0 auto}
 .yd-step.active{display:block}
+.yd-step .h2{text-align:center;margin-bottom:32px}
 .yd-step-label{display:block;text-align:center;font-family:var(--mono);font-size:11.5px;font-weight:600;
   text-transform:uppercase;letter-spacing:.06em;color:rgba(17,17,17,.5);margin-bottom:10px}
 .yd-tiles{display:flex;flex-wrap:wrap;gap:2px;background:rgba(17,17,17,.15);border-radius:16px;overflow:hidden}
@@ -479,8 +469,7 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
 .scope:has(.layer-card:hover) .scope-plant{z-index:0}
 .scope-head{display:flex;justify-content:space-between;align-items:flex-end;gap:60px;margin-bottom:56px}
 .scope-head .h2{max-width:560px}
-.scope-head-note{max-width:280px;color:rgba(255,255,255,.5);font-size:14px;text-align:right;flex-shrink:0}
-@media(max-width:800px){.scope-head{flex-direction:column;align-items:flex-start}.scope-head-note{text-align:left}}
+@media(max-width:800px){.scope-head{flex-direction:column;align-items:flex-start}}
 .scope-head .eyebrow{color:rgba(255,255,255,.5)}
 .layer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 @media(max-width:960px){.layer-grid{grid-template-columns:1fr}}
@@ -493,9 +482,6 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
   transition:transform .45s var(--ease-o)}
 .layer-card:hover{transform:translateY(-10px);box-shadow:0 28px 54px rgba(0,0,0,.14)}
 .layer-card:hover::before{transform:scaleX(1)}
-.layer-card-plant{position:absolute;right:8px;bottom:0;width:64px;height:auto;pointer-events:none;opacity:.85;
-  transition:transform .45s var(--ease-o)}
-.layer-card:hover .layer-card-plant{transform:translateY(-6px) rotate(-4deg)}
 .layer-tag{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.06em;
   text-transform:uppercase;color:var(--text-secondary);background:var(--surface);border:1px solid var(--border);
   padding:5px 10px;border-radius:999px;margin-bottom:16px;align-self:flex-start;
@@ -508,7 +494,6 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
 .layer-card li{font-size:13.5px;color:var(--text);padding-left:16px;position:relative}
 .layer-card li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;background:var(--accent);border-radius:1px}
 .layer-note{font-size:13px;color:var(--text-secondary);margin:0 0 18px;line-height:1.5}
-.layer-foot{margin-top:auto;padding-top:16px;border-top:1px solid var(--border);font-size:13px;font-weight:700}
 .scope-note{max-width:640px;margin-top:44px;color:rgba(255,255,255,.55);font-size:14px;line-height:1.6}
 .scope-cta{margin-top:28px}
 
@@ -549,8 +534,6 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
 .observer-portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
 .observer-body-wrap .h2{margin:14px 0 20px}
 .observer-body{color:var(--text-secondary);margin:0 0 14px;max-width:62ch}
-.observer-cta{display:inline-block;margin-top:16px;font-size:14px;font-weight:600;
-  border-bottom:2px solid var(--accent);padding-bottom:3px}
 .observer-tl{position:relative;padding-left:32px;margin-top:48px;border-top:1px solid var(--border);padding-top:40px}
 .observer-tl-line{position:absolute;left:5px;top:46px;bottom:6px;width:1px;background:var(--border)}
 .observer-mark{position:relative;margin-bottom:32px}
@@ -585,8 +568,6 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
 .intake-progress{display:flex;justify-content:flex-start;gap:6px;margin-bottom:40px}
 .intake-progress span{width:26px;height:3px;background:var(--border);border-radius:2px;transition:background .35s var(--ease)}
 .intake-progress span.on{background:var(--accent)}
-.intake-tile{transition:transform .2s var(--ease),border-color .2s}
-.intake-tile:hover{transform:translateY(-2px);border-color:var(--accent)}
 .intake-step{display:none}
 .intake-step.active{display:block}
 .intake-q{font-size:clamp(21px,2.4vw,27px);font-weight:800;margin-bottom:22px}
@@ -594,6 +575,7 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
   width:100%;border:none;border-bottom:1.5px solid var(--border);background:transparent;
   font-family:var(--sans);font-size:17px;padding:10px 0;color:var(--text);resize:vertical}
 .intake-step input:focus,.intake-step textarea:focus{border-color:var(--accent);outline:none}
+.field-gap{margin-bottom:18px}
 .intake-opts{display:flex;flex-direction:column;gap:2px;border-radius:14px;overflow:hidden;background:var(--border)}
 .intake-opt{background:var(--background);padding:18px 20px;text-align:left;font-size:16px;transition:background .2s}
 .intake-opt:hover{background:var(--surface)}
@@ -814,7 +796,7 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
         <div class="case-panel-media">
           <div class="case-photo">
             <img src="pictures/cover-africa-rising.webp" alt="Africa Rising report cover" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="ph" style="display:none;width:100%;height:100%"><span class="ph-label">Report Cover</span><span class="ph-file">cover-africa-rising.webp</span></div>
+            <div class="ph ph-fill"><span class="ph-label">Report Cover</span><span class="ph-file">cover-africa-rising.webp</span></div>
           </div>
           <span class="case-photo-tag">01 &middot; Regional Coalition</span>
           <div class="case-stats">
@@ -836,7 +818,7 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
         <div class="case-panel-media">
           <div class="case-photo">
             <img src="pictures/case-file-ai-employment.webp" alt="Case file thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="ph" style="display:none;width:100%;height:100%"><span class="ph-label">Case File</span><span class="ph-file">case-file-ai-employment.webp</span></div>
+            <div class="ph ph-fill"><span class="ph-label">Case File</span><span class="ph-file">case-file-ai-employment.webp</span></div>
           </div>
           <span class="case-photo-tag">02 &middot; AI Strategy</span>
           <div class="case-stats">
@@ -890,7 +872,7 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
 
     <div class="yd-step" data-step="1">
       <span class="yd-step-label">If the reasoning is wrong</span>
-      <h2 class="h2" style="text-align:center;margin-bottom:32px">What would failure cost?</h2>
+      <h2 class="h2">What would failure cost?</h2>
       <div class="yd-tiles" id="ydCost">
         <button class="yd-tile" data-val="Reversible">Reversible</button>
         <button class="yd-tile" data-val="Material">Material</button>
@@ -901,7 +883,7 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
 
     <div class="yd-step" data-step="2">
       <span class="yd-step-label">The name on the commitment</span>
-      <h2 class="h2" style="text-align:center;margin-bottom:32px">Who has to defend this decision?</h2>
+      <h2 class="h2">Who has to defend this decision?</h2>
       <div class="yd-tiles" id="ydWho">
         <button class="yd-tile" data-val="Individual">Individual</button>
         <button class="yd-tile" data-val="Team">Team</button>
@@ -994,7 +976,7 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
   <div class="wrap observer-grid">
     <div class="observer-portrait reveal-l">
       <img src="pictures/founder.png" alt="Julian Vance" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="ph" style="display:none;width:100%;height:100%;border:none;border-radius:0">
+      <div class="ph ph-fill ph-flush">
         <span class="ph-label">Julian Vance</span><span class="ph-file">founder.png &middot; 4:5 crop</span>
       </div>
     </div>
@@ -1038,7 +1020,7 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
           <div class="tcard-role">COO &middot; Series B SaaS</div>
           <p class="tquote">We were two days from locking a pricing change. The report showed the model assumed new-logo growth when the real exposure was renewal churn. We split the rollout. It saved a very expensive conversation with our largest accounts.</p>
           <div class="tcard-foot">
-            <div class="avatar"><img src="pictures/sarah-k.webp" alt="Sarah K. portrait"></div>
+            <div class="avatar"><img src="assets/reviews/sarah-k.webp" alt="Sarah K. portrait"></div>
             <div><div class="tname">Sarah K.</div><div class="trole-sm">COO &middot; Series B SaaS</div></div>
           </div>
         </div>
@@ -1046,7 +1028,7 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
           <div class="tcard-role">Founder &middot; B2B Fintech</div>
           <p class="tquote">Our campaign memo read like a strong argument on its own. The report found we were treating engagement as buyer intent, in the wrong segment entirely. We redirected the budget before a dollar of it went out.</p>
           <div class="tcard-foot">
-            <div class="avatar"><img src="pictures/marcus-o.webp" alt="Marcus O. portrait"></div>
+            <div class="avatar"><img src="assets/reviews/marcus-o.webp" alt="Marcus O. portrait"></div>
             <div><div class="tname">Marcus O.</div><div class="trole-sm">Founder &middot; B2B Fintech</div></div>
           </div>
         </div>
@@ -1054,7 +1036,7 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
           <div class="tcard-role">VP Product &middot; Enterprise HR Tech</div>
           <p class="tquote">The fact that they don't tell you what to do is exactly what makes it useful. You get a clear picture of what you're actually betting on. The decision is still yours. The risk underneath it just stops being hidden.</p>
           <div class="tcard-foot">
-            <div class="avatar"><img src="pictures/priya-n.webp" alt="Priya N. portrait"></div>
+            <div class="avatar"><img src="assets/reviews/priya-n.webp" alt="Priya N. portrait"></div>
             <div><div class="tname">Priya N.</div><div class="trole-sm">VP Product &middot; Enterprise HR Tech</div></div>
           </div>
         </div>
@@ -1062,7 +1044,7 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
           <div class="tcard-role">Head of Product &middot; PLG SaaS</div>
           <p class="tquote">The review caught that five features were justified by the same two customer quotes. The report named three linked assumptions we'd never actually stress-tested. We pushed three weeks and shipped something considerably stronger.</p>
           <div class="tcard-foot">
-            <div class="avatar"><img src="pictures/james-t.webp" alt="James T. portrait"></div>
+            <div class="avatar"><img src="assets/reviews/james-t.webp" alt="James T. portrait"></div>
             <div><div class="tname">James T.</div><div class="trole-sm">Head of Product &middot; PLG SaaS</div></div>
           </div>
         </div>
@@ -1130,8 +1112,8 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
       </div>
       <div class="intake-step" data-step="5">
         <p class="intake-q">Who should we send this to?</p>
-        <input type="text" id="iqName" placeholder="Full name" required style="margin-bottom:18px">
-        <input type="text" id="iqOrg" placeholder="Organization" required style="margin-bottom:18px">
+        <input type="text" id="iqName" placeholder="Full name" required class="field-gap">
+        <input type="text" id="iqOrg" placeholder="Organization" required class="field-gap">
         <input type="email" id="iqEmail" placeholder="Work email" required>
       </div>
 
