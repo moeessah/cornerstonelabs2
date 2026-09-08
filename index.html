@@ -13,21 +13,17 @@
 /* ============================================================
    Cornerstone LABS — TOKENS
 
-   IMAGE ASSETS NEEDED (save at these exact paths, .png):
-   /pictures/founder.png             founder portrait, 4:5 crop
-   /pictures/investor (1).png        advisor
-   /pictures/investor (2).png        advisor
-   /pictures/investor (3).png        advisor
-   /pictures/investor (4).png        advisor
-   /pictures/investor (5).png        advisor
-   /pictures/investor (6).png        advisor
-   /pictures/investor (7).png        advisor
-   /pictures/investor (8).png        advisor
-   /pictures/investor (9).png        advisor
-   /pictures/sasson.png             Steve Sasson portrait, 1975
-   /pictures/camera-1975.png        first digital camera, Kodak lab
-   /pictures/kodak-logo.png         Kodak wordmark
-   /pictures/film-packaging.png     Kodak film box, 1980s
+   IMAGE ASSETS NEEDED (save at these exact paths):
+   /pictures/founder.webp             founder portrait, 4:5 crop
+   /pictures/investor (1).webp        advisor
+   /pictures/investor (2).webp        advisor
+   /pictures/investor (3).webp        advisor
+   /pictures/investor (4).webp        advisor
+   /pictures/investor (5).webp        advisor
+   /pictures/investor (6).webp        advisor
+   /pictures/investor (7).webp        advisor
+   /pictures/investor (8).webp        advisor
+   /pictures/investor (9).webp        advisor
    /pictures/cover-africa-rising.webp   report cover, case study 01
    /pictures/case-file-ai-employment.webp case file thumbnail, case study 02
    /assets/reviews/{sarah-k,marcus-o,priya-n,james-t}.webp   testimonial avatars
@@ -335,7 +331,7 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
 .case-panel.reverse{flex-direction:row-reverse}
 
 .case-panel-media{flex:0 1 clamp(216px,28vw,336px);position:relative}
-.case-photo{width:100%;aspect-ratio:3/2;border-radius:24px;overflow:hidden;position:relative;
+.case-photo{display:block;width:100%;aspect-ratio:3/2;border-radius:24px;overflow:hidden;position:relative;
   box-shadow:var(--shadow);background:var(--surface)}
 .case-photo img{width:100%;height:100%;object-fit:cover}
 .case-photo-tag{position:absolute;top:14px;left:14px;background:var(--accent);color:var(--text);
@@ -669,9 +665,7 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
     <!-- Beat 1: the quote + the moment -->
     <div class="kodak-moment" data-m="0">
       <div class="kodak-inner">
-        <div class="kodak-ph" style="width:64px;height:64px;margin:0 auto 26px">
-          <img src="pictures/kodak-logo.png" alt="Kodak logo" loading="lazy" onerror="this.style.display='none'">
-        </div>
+        <div class="kodak-ph" style="width:64px;height:64px;margin:0 auto 26px"></div>
         <p class="kodak-quote">&ldquo;That's cute. But don't tell anyone about it.&rdquo;</p>
         <span class="kodak-attr">Kodak management, to engineer Steve Sasson, 1975</span>
       </div>
@@ -681,12 +675,8 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
     <div class="kodak-moment light" data-m="1">
       <div class="kodak-inner kodak-split">
         <div class="kodak-imgs">
-          <div class="kodak-ph">
-            <img src="pictures/sasson.png" alt="Steve Sasson" loading="lazy" onerror="this.style.display='none'">
-          </div>
-          <div class="kodak-ph">
-            <img src="pictures/camera-1975.png" alt="First digital camera, 1975" loading="lazy" onerror="this.style.display='none'">
-          </div>
+          <div class="kodak-ph"></div>
+          <div class="kodak-ph"></div>
         </div>
         <div class="kodak-body-col">
           <p>Steve Sasson builds the world's first digital camera in 1975.</p>
@@ -712,9 +702,7 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
         <div class="kodak-nums">
           <div class="kodak-num-block"><span class="n" data-num="90" data-suffix="%">0%</span><span class="c">US film sales</span></div>
           <div class="kodak-num-block"><span class="n" data-num="85" data-suffix="%">0%</span><span class="c">Camera sales</span></div>
-          <div class="kodak-ph" style="width:110px;height:130px">
-            <img src="pictures/film-packaging.png" alt="Kodak film packaging" loading="lazy" onerror="this.style.display='none'">
-          </div>
+          <div class="kodak-ph" style="width:110px;height:130px"></div>
         </div>
         <p class="kodak-bottom">Every visible signal supported the strategy. In 1979, an internal memo named the alternative anyway.</p>
       </div>
@@ -794,10 +782,10 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
     <div class="case-panels">
       <article class="case-panel active" data-case-panel="0">
         <div class="case-panel-media">
-          <div class="case-photo">
+          <a class="case-photo" href="assets/pdf/africa-rising.pdf" target="_blank" rel="noopener" aria-label="Open the Africa Rising report (PDF)">
             <img src="pictures/cover-africa-rising.webp" alt="Africa Rising report cover" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="ph ph-fill"><span class="ph-label">Report Cover</span><span class="ph-file">cover-africa-rising.webp</span></div>
-          </div>
+          </a>
           <span class="case-photo-tag">01 &middot; Regional Coalition</span>
           <div class="case-stats">
             <div class="case-stat"><span class="num">100+</span><span class="lbl">People convened across philanthropic organizations</span></div>
@@ -816,10 +804,10 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
 
       <article class="case-panel reverse" data-case-panel="1">
         <div class="case-panel-media">
-          <div class="case-photo">
+          <a class="case-photo" href="assets/pdf/ai-employment.pdf" target="_blank" rel="noopener" aria-label="Open the AI Employment case file (PDF)">
             <img src="pictures/case-file-ai-employment.webp" alt="Case file thumbnail" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="ph ph-fill"><span class="ph-label">Case File</span><span class="ph-file">case-file-ai-employment.webp</span></div>
-          </div>
+          </a>
           <span class="case-photo-tag">02 &middot; AI Strategy</span>
           <div class="case-stats">
             <div class="case-stat"><span class="num">75</span><span class="lbl">People convened</span></div>
@@ -975,9 +963,9 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
 <section class="observer" id="observer" data-nav-label="Founder">
   <div class="wrap observer-grid">
     <div class="observer-portrait reveal-l">
-      <img src="pictures/founder.png" alt="Julian Vance" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <img src="pictures/founder.webp" alt="Julian Vance" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="ph ph-fill ph-flush">
-        <span class="ph-label">Julian Vance</span><span class="ph-file">founder.png &middot; 4:5 crop</span>
+        <span class="ph-label">Julian Vance</span><span class="ph-file">founder.webp &middot; 4:5 crop</span>
       </div>
     </div>
     <div class="observer-body-wrap reveal">
@@ -1286,15 +1274,15 @@ h1,h2,h3{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.04em}
   /* ---- BENCH: build auto-scrolling carousel with real advisor files ---- */
   function initCarousel() {
     const advisors = [
-      { file:'investor (1).png', name:'Nathaniel Cole', role:'Professor, Computational Linguistics, Nordic Institute of Technology', detail:'Distinguished Research Scholar, Whitmore Institute; Founding Fellow, Applied Language Sciences', initials:'NC' },
-      { file:'investor (2).png', name:'Gregory Hale', role:'Head of Quantitative Strategy, Meridian Capital', detail:'Adjunct Professor, Applied Mathematics, Vance School of Business', initials:'GH' },
-      { file:'investor (3).png', name:'Marcus Whitfield', role:'CEO, GenomeCompass', detail:'PhD, Applied Sciences; Co-Chair, AI for Public Health Initiative', initials:'MW' },
-      { file:'investor (4).png', name:'Kenji Watanabe', role:'Research Affiliate, Ashcombe School of Management', detail:'Former Vice President of Technology Strategy, Meridian Systems', initials:'KW' },
-      { file:'investor (5).png', name:'Mei Lin Zhao', role:'Professor of Media Theory and Digital Culture, Faircroft College', detail:'Host, The Human Signal; Research Fellow, Horizon Institute; Author and Documentarian', initials:'MZ' },
-      { file:'investor (6).png', name:'Malik Osei', role:'University Professor & Distinguished Service Professor in Computational Engineering', detail:'Caldwell University', initials:'MO' },
-      { file:'investor (7).png', name:'Priya Anand', role:'Managing Director, Meridian Policy Institute', detail:'Lead, Future of Work Program', initials:'PA' },
-      { file:'investor (8).png', name:'Viktor Kessler', role:'Professor Emeritus, Economics & Global Finance, Ashford University', detail:'Founder, Kessler Macro Partners', initials:'VK' },
-      { file:'investor (9).png', name:'Edward Sinclair', role:'Founder & CEO, Foresight Collective', detail:'Professor of Strategic Foresight, Caldwell University', initials:'ES' }
+      { file:'investor (1).webp', name:'Nathaniel Cole', role:'Professor, Computational Linguistics, Nordic Institute of Technology', detail:'Distinguished Research Scholar, Whitmore Institute; Founding Fellow, Applied Language Sciences', initials:'NC' },
+      { file:'investor (2).webp', name:'Gregory Hale', role:'Head of Quantitative Strategy, Meridian Capital', detail:'Adjunct Professor, Applied Mathematics, Vance School of Business', initials:'GH' },
+      { file:'investor (3).webp', name:'Marcus Whitfield', role:'CEO, GenomeCompass', detail:'PhD, Applied Sciences; Co-Chair, AI for Public Health Initiative', initials:'MW' },
+      { file:'investor (4).webp', name:'Kenji Watanabe', role:'Research Affiliate, Ashcombe School of Management', detail:'Former Vice President of Technology Strategy, Meridian Systems', initials:'KW' },
+      { file:'investor (5).webp', name:'Mei Lin Zhao', role:'Professor of Media Theory and Digital Culture, Faircroft College', detail:'Host, The Human Signal; Research Fellow, Horizon Institute; Author and Documentarian', initials:'MZ' },
+      { file:'investor (6).webp', name:'Malik Osei', role:'University Professor & Distinguished Service Professor in Computational Engineering', detail:'Caldwell University', initials:'MO' },
+      { file:'investor (7).webp', name:'Priya Anand', role:'Managing Director, Meridian Policy Institute', detail:'Lead, Future of Work Program', initials:'PA' },
+      { file:'investor (8).webp', name:'Viktor Kessler', role:'Professor Emeritus, Economics & Global Finance, Ashford University', detail:'Founder, Kessler Macro Partners', initials:'VK' },
+      { file:'investor (9).webp', name:'Edward Sinclair', role:'Founder & CEO, Foresight Collective', detail:'Professor of Strategic Foresight, Caldwell University', initials:'ES' }
     ];
     const track = $('#advCarousel');
     function cardHTML(a) {
